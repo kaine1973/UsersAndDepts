@@ -2,25 +2,20 @@ package rk.po;
 
 public class User {
 
-    private Integer id;
+    private Integer userId;
     private String userName;
-    private String deptName;
-    private Integer deptNo;
+    private String trueName;
+    private String password;
+    private Integer deptId;
+    private String birthday;
+    private Long cellphone;
 
-    public Integer getDeptNo() {
-        return deptNo;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setDeptNo(Integer deptNo) {
-        this.deptNo = deptNo;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public String getUserName() {
@@ -31,21 +26,43 @@ public class User {
         this.userName = userName;
     }
 
-    public String getDeptName() {
-        return deptName;
+    public String getTrueName() {
+        return trueName;
     }
 
-    public void setDeptName(String deptName) {
-        this.deptName = deptName;
+    public void setTrueName(String trueName) {
+        this.trueName = trueName;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", userName='" + userName + '\'' +
-                ", deptName='" + deptName + '\'' +
-                ", deptNo=" + deptNo +
-                '}';
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Integer getDeptId() {
+        return deptId;
+    }
+
+    public void setDeptId(Integer deptId) {
+        this.deptId = deptId;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
+    public Long getCellphone() {
+        return cellphone;
+    }
+
+    public void setCellphone(Long cellphone) {
+        this.cellphone = cellphone;
     }
 }

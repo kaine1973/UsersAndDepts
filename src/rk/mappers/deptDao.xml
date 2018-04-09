@@ -4,9 +4,42 @@
 <mapper namespace="rk.dao.DeptDao">
 
     <select id="queryAllDepts" resultType="dept">
-        SELECT id,dept_name as deptName,dept_level as deptLevel,dept_code as deptCode FROM test.t_sys_dept
+        SELECT
+        deptid as deptId,
+        deptcode as deptCode,
+        deptname as deptName,
+        deptlevel as deptLevel
+        FROM test.t_sys_dept
     </select>
 
+    <select id="queryDeptById" resultType="dept" parameterType="int">
+        SELECT
+        deptid as deptId,
+        deptcode as deptCode,
+        deptname as deptName,
+        deptlevel as deptLevel
+        FROM test.t_sys_dept
+        where deptid = #{deptId}
+    </select>
+    <insert id="insertDept" parameterType="dept">
+        insert into t_sys_dept
+        (deptid,deptcode,deptname,deptlevel)
+        values
+        (#{deptId},#{deptCode},#{deptName},#{deptLevel})
+    </insert>
+
+    <update id="updateDept" parameterType="dept">
+        update t_sys_dept set
+        deptcode = #{deptCode},
+        deptname = #{deptName},
+        deptlevel = #{deptLevel}
+        where deptid = #{deptId}
+    </update>
+
+    <delete id="deleteDeptById" parameterType="int">
+        delete from t_sys_dept
+        where deptid = #{deptId}
+    </delete>
 
 
 

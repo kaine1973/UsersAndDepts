@@ -17,4 +17,20 @@ public class DeptService {
     public List<Dept> queryAllDepts() {
         return deptDao.queryAllDepts();
     }
+
+    public Dept queryDeptById(Integer deptId) {
+        return deptDao.queryDeptById(deptId);
+    }
+
+    public boolean deleteDeptById(Integer deptId) {
+        return deptDao.deleteDeptById(deptId)==1;
+    }
+
+    public boolean updateDept(Dept dept) {
+        return deptDao.updateDept(dept) == 1;
+    }
+
+    public boolean insertDept(Dept dept) {
+        return deptDao.insertDept(dept) == 1;
+    }
 }

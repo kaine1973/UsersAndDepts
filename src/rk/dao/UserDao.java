@@ -7,7 +7,7 @@ import java.util.List;
 public interface UserDao {
     public List<User> queryAllUsers();
 
-    public int deleteUserById(Integer id);
+    public int deleteUserById(Integer userId);
 
     public int updateUserById(User user);
 

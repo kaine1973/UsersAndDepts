@@ -2,17 +2,17 @@ package rk.po;
 
 public class Dept {
 
-    private Integer id;
+    private Integer deptId;
     private String deptCode;
     private String deptName;
     private Integer deptLevel;
 
-    public Integer getId() {
-        return id;
+    public Integer getDeptId() {
+        return deptId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setDeptId(Integer deptId) {
+        this.deptId = deptId;
     }
 
     public String getDeptCode() {

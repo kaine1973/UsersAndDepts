@@ -27,25 +27,23 @@ public class UserController {
     @Autowired
     private DeptService deptService;
 
+    //查看
     @RequestMapping("queryAllusers")
     public ModelAndView queryAllUsers(){
         List<User> list =  userService.queryAllUsers();
         return new ModelAndView("forward:/user.jsp").addObject("users",list);
     }
 
+    //删除
     @RequestMapping("deleteUser")
     @ResponseBody
     public MessageModel deleteUser(Integer id){
         return userService.deleteUser(id)?new MessageModel():new MessageModel(300,"删除失败");
     }
 
-    @RequestMapping("updateUser")
-    @ResponseBody
-    public MessageModel updateUser(User user){
-        return userService.updateUser(user)?new MessageModel():new MessageModel(300,"修改失败");
-    }
-    @RequestMapping("alterUser")
-    public ModelAndView alterUser(Integer userId){
+    //更新
+    @RequestMapping("showUpdateUser")
+    public ModelAndView showUpdateUser(Integer userId){
         User user = userService.queryUserById(userId);
         List<Dept> depts = deptService.queryAllDepts();
         Map<String, Object> params = new HashMap<>();
@@ -53,10 +51,22 @@ public class UserController {
         params.put("depts",depts);
         return new ModelAndView("forward:/alterUser.jsp").addAllObjects(params);
     }
+    @RequestMapping("updateUser")
+    public ModelAndView updateUser(User user){
+        MessageModel mm = userService.updateUser(user)?new MessageModel():new MessageModel(300,"修改失败");
+        return new ModelAndView("forward:/message.jsp").addObject("mm",mm);
+    }
+
+    //添加
+    @RequestMapping("showInsertUser")
+    public ModelAndView showInsertUser(Integer userId){
+        List<Dept> depts = deptService.queryAllDepts();
+        return new ModelAndView("forward:/alterUser.jsp").addObject("depts",depts);
+    }
 
     @RequestMapping("insertUser")
-    @ResponseBody
-    public MessageModel insertUser(User user){
-        return userService.insertUser(user)?new MessageModel():new MessageModel(300,"添加失败");
+    public ModelAndView insertUser(User user){
+        MessageModel mm =  userService.insertUser(user)?new MessageModel():new MessageModel(300,"添加失败");
+        return new ModelAndView("forward:/message.jsp").addObject("mm",mm);
     }
 }

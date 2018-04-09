@@ -32,6 +32,5 @@ public class UserService {
 
     public Boolean insertUser(User user) {
         return userDao.insertUser(user)==1;
-
     }
 }

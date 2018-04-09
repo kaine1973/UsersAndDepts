@@ -4,26 +4,47 @@
 <mapper namespace="rk.dao.UserDao">
 
     <select id="queryAllUsers" resultType="user">
-        SELECT u.user_name as userName,u.id,d.dept_name as deptName,d.id as deptNo
-        FROM t_sys_user u left join t_sys_dept d on u.dept_no = d.id
+        SELECT
+        userid as userId,
+        username as userNode,
+        truename as trueName,
+        password,cellphone,birthday,
+        deptid as deptId
+        FROM t_sys_user
     </select>
 
     <select id="queryUserById" resultType="user" parameterType="int">
-        SELECT u.user_name as userName,u.id,d.dept_name as deptName,d.id as deptNo
-        FROM t_sys_user u left join t_sys_dept d on u.dept_no = d.id
+        SELECT
+        userid as userId,
+        username as userName,
+        truename as trueName,
+        password,cellphone,birthday,
+        deptid as deptId
+        FROM dept
         where u.id=#{id}
     </select>
 
     <delete id="deleteUserById" parameterType="int">
-        delete from t_sys_user where id = #{id}
+        delete from t_sys_user where userid = #{id}
     </delete>
 
     <insert id="insertUser" parameterType="user">
-        insert into t_sys_user(user_name,dept_no) values (#{userName},#{deptNo})
+        insert into t_sys_user
+        (username,truename,password,deptid,birthday,cellphone)
+        values
+        (#{userName},#{trueName},#{password},#{deptId},#{birthday},#{cellphone})
     </insert>
 
     <update id="updateUserById" parameterType="user">
-        update t_sys_user set user_name=#{userName},dept_no=#{deptNo} where id=#{id}
+        update t_sys_user
+        set
+        username = #{userName},
+        truename = #{trueName},
+        password = #{password},
+        deptid = #{deptId},
+        birthday = #{birthday},
+        cellphone = #{cellphone}
+        where userid=#{userId}
     </update>
 
 </mapper>
