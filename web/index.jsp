@@ -11,7 +11,8 @@
     <title>$Title$</title>
   </head>
   <body>
-  <a href="/user/queryAllusers">查看员工</a>
-  <a href="/dept/queryAllDepts">查看部门</a>
+  <a href="/user/queryAllusers">查看员工</a><br/>
+  <a href="/dept/queryAllDepts">查看部门</a><br/><br/><br/><br/>
+  <a href="text/install_mysql5.7orHigher_centOS.jsp">centos7上安装mysql5.7</a><br/>
   </body>
 </html>
