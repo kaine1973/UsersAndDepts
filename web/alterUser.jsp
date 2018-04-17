@@ -13,9 +13,9 @@
 <form id="myform" method="post" action="${user==null?"/user/insertUser":"/user/updateUser" }">
     <input name="userId" value="${user.userId}" hidden="hidden">
     <table>
-        <tr><td>用 户 名：</td><td><input type="text" name="userName" value="${userName}"></td></tr>
-        <tr><td>真实姓名：</td><td><input type="text" name="trueName" value="${trueName}"></td></tr>
-        <tr><td> 密  码：</td><td><input type="text" name="password" value="${password}"></td></tr>
+        <tr><td>用 户 名：</td><td><input type="text" name="userName" value="${user.userName}"></td></tr>
+        <tr><td>真实姓名：</td><td><input type="text" name="trueName" value="${user.trueName}"></td></tr>
+        <tr><td> 密  码：</td><td><input type="text" name="password" value="${user.password}"></td></tr>
         <tr><td>所属部门</td><td>
             <select name="deptId">
                 <c:forEach items="${depts}" var="dept">
@@ -26,8 +26,8 @@
                 <span style="font-size: small">暂无部门，请先<a href="/dept/showInsertDept">添加部门</a></span>
             </c:if>
         </td></tr>
-        <tr><td>出生日期</td><td><input type="text" name="birthday" value="${birthday}"></td></tr>
-        <tr><td>电话号码</td><td><input type="text" name="cellphone" value="${cellphone}"></td></tr>
+        <tr><td>出生日期</td><td><input type="text" name="birthday" value="${user.birthday}"></td></tr>
+        <tr><td>电话号码</td><td><input type="text" name="cellphone" value="${user.cellphone}"></td></tr>
         <tr><td><input type="submit" value="保存"></td><td><input type="button" onclick="javascript:history.go(-1)" value="取消"/></td></tr>
     </table>
 

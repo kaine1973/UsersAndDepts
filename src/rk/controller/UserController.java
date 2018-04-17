@@ -30,15 +30,19 @@ public class UserController {
     //查看
     @RequestMapping("queryAllusers")
     public ModelAndView queryAllUsers(){
+        List<Dept> depts = deptService.queryAllDepts();
         List<User> list =  userService.queryAllUsers();
-        return new ModelAndView("forward:/user.jsp").addObject("users",list);
+        Map<String,Object> params = new HashMap<>();
+        params.put("depts",depts);
+        params.put("users",list);
+        return new ModelAndView("forward:/user.jsp").addAllObjects(params);
     }
 
     //删除
     @RequestMapping("deleteUser")
     @ResponseBody
-    public MessageModel deleteUser(Integer id){
-        return userService.deleteUser(id)?new MessageModel():new MessageModel(300,"删除失败");
+    public MessageModel deleteUser(Integer userId){
+        return userService.deleteUser(userId)?new MessageModel():new MessageModel(300,"删除失败");
     }
 
     //更新

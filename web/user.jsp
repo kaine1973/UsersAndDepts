@@ -37,13 +37,14 @@
             </td>
             <td>${user.birthday}</td>
             <td>${user.cellphone}</td>
-            <td><a href="javascript:deleteUser(${user.id})">删除</a>
-            <a href="/user/showAlterUser?userId=${user.id}">修改</a></td>
+            <td><a href="javascript:deleteUser(${user.userId})">删除</a>
+            <a href="/user/showUpdateUser?userId=${user.userId}">修改</a></td>
         </tr>
     </c:forEach>
 </table>
 
 <br/>
+    <a href="/index.jsp">返回首页</a>
 </center>
 </body>
 <script>

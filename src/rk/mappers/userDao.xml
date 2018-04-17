@@ -6,7 +6,7 @@
     <select id="queryAllUsers" resultType="user">
         SELECT
         userid as userId,
-        username as userNode,
+        username as userName,
         truename as trueName,
         password,cellphone,birthday,
         deptid as deptId
@@ -20,12 +20,12 @@
         truename as trueName,
         password,cellphone,birthday,
         deptid as deptId
-        FROM dept
-        where u.id=#{id}
+        FROM t_sys_user
+        where userid=#{userId}
     </select>
 
     <delete id="deleteUserById" parameterType="int">
-        delete from t_sys_user where userid = #{id}
+        delete from t_sys_user where userid = #{userId}
     </delete>
 
     <insert id="insertUser" parameterType="user">
